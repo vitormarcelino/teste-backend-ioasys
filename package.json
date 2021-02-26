@@ -1,0 +1,40 @@
+{
+  "name": "teste-backend-ioasys",
+  "version": "1.0.0",
+  "repository": "git@github.com:vitormarcelino/teste-backend-ioasys.git",
+  "author": {
+    "name": "Vitor Marcelino",
+    "email": "vitormarcelino93@gmail.com",
+    "url": "https://vitormarcelino.com.br"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "main": "src/app.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.13.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.13.0",
+    "@babel/runtime": "^7.4.5",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.0",
+    "sequelize-cli": "^6.2.0"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.1",
+    "@babel/register": "^7.13.0",
+    "babel-jest": "^24.8.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3"
+  }
+}
