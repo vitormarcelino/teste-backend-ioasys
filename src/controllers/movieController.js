@@ -19,7 +19,9 @@ class MovieController {
         if(!movie) {
             return res.status(404).send({error: "Not Found"})
         }
-        return res.send(movie)
+        let returnObj = movie.toJSON()
+        returnObj.averageVotes = await movie.getAverageVotes()
+        return res.send(returnObj)
     }
 
     async update(req, res) {
@@ -39,6 +41,19 @@ class MovieController {
             return res.status(404).send({error: "Not Found"})
         }
         movie.destroy()
+        return res.status(204).send()
+    }
+
+    async vote(req, res) {
+        const movie = await Movie.findByPk(req.params.id)
+        if(!movie) {
+            return res.status(404).send({error: "Not Found"})
+        }
+        const { note } = req.body
+        let error = movie.computeVote(note, req.authenticatedId)
+        if(error) {
+            return res.status(400).send({ error })
+        }
         return res.status(204).send()
     }
 
