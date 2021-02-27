@@ -15,7 +15,8 @@ class AdminController {
         if(exists) {
             return res.status(409).send({ error: 'Admin already exists'})
         }
-        Admin.create(data)
+        let admin = Admin.create(data)
+        admin.password = undefined
         return res.send({ok: true})
     }
 
