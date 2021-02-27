@@ -19,7 +19,8 @@ module.exports = (req, res, next) => {
         if(err) {
             return res.status(401).send({ error: 'Token Invalid' })
         }
-        req.adminId = decoded.id
+        req.authenticatedId = decoded.id
+        req.authenticatedModel = decoded.model
         return next()
     })
 

@@ -28,6 +28,6 @@ router.post('/user', userController.store)
 router.get('/user/:id', userController.show)
 router.patch('/user/:id', userController.update)
 router.delete('/user/:id', userController.destroy)
-
+router.post('/user/authenticate', authController.authUser)
 
 export default router

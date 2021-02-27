@@ -1,4 +1,4 @@
-const { Admin } = require('../models')
+const { Admin, User } = require('../models')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
@@ -15,12 +15,29 @@ class AuthController {
         if(!await bcrypt.compare(password, admin.password)) {
             return res.status(400).send({ error: 'Invalid Password'})
         }
-        console.log(process.env.AUTH_EXPIRATION)
 
         admin.password = undefined
-        const token = jwt.sign({ id: admin.id }, process.env.APP_KEY, { expiresIn: process.env.AUTH_EXPIRATION })
+        const token = jwt.sign({ id: admin.id, model: 'admin' }, process.env.APP_KEY, { expiresIn: process.env.AUTH_EXPIRATION })
 
         res.send({ admin, token })
+    }
+
+    async authUser(req, res) {
+        const { email, password } = req.body
+        const user = await User.findOne({ where: { email }, attributes: ['id', 'name', 'email', 'password', 'birthday'] })
+
+        if(!user) {
+            return res.status(400).send({ error: 'User not Found'})
+        }
+
+        if(!await bcrypt.compare(password, user.password)) {
+            return res.status(400).send({ error: 'Invalid Password'})
+        }
+
+        user.password = undefined
+        const token = jwt.sign({ id: user.id, model: 'user' }, process.env.APP_KEY, { expiresIn: process.env.AUTH_EXPIRATION })
+
+        res.send({ user, token })
     }
 
 }
