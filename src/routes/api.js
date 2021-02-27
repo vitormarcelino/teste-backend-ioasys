@@ -3,6 +3,7 @@ import AdminController from '../controllers/adminController.js'
 import AuthController from '../controllers/authController.js'
 import UserController from '../controllers/userController.js'
 import MovieController from '../controllers/movieController.js'
+import adminMiddleware from '../middlewares/admin'
 
 var router = express.Router()
 
@@ -36,9 +37,9 @@ router.post('/user/authenticate', authController.authUser)
 */
 const movieController = new MovieController()
 router.get('/movies', movieController.index)
-router.post('/movie', movieController.store)
+router.post('/movie', adminMiddleware, movieController.store)
 router.get('/movie/:id', movieController.show)
-router.patch('/movie/:id', movieController.update)
-router.delete('/movie/:id', movieController.destroy)
+router.patch('/movie/:id', adminMiddleware, movieController.update)
+router.delete('/movie/:id', adminMiddleware, movieController.destroy)
 
 export default router

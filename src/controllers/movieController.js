@@ -25,6 +25,9 @@ class MovieController {
     async update(req, res) {
         const data = await MovieController.getReqData(req)
         let movie = await Movie.findByPk(req.params.id)
+        if(!movie) {
+            return res.status(404).send({error: "Not Found"})
+        }
         await movie.update(data)
         movie.updatedAt = undefined
         return res.send(movie)
