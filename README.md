@@ -74,3 +74,176 @@ Você deverá criar uma API que o site [IMDb](https://www.imdb.com/) irá consul
   2. https://sailsjs.com/
 
 - Guideline rails http://guides.rubyonrails.org/index.html
+
+# 👨‍💻️ Exemplo de Requisições
+
+## Autenticação
+- Admin 
+```
+curl --request POST \
+  --url http://localhost:3000/admin/authenticate \
+  --header 'content-type: application/json' \
+  --data '{
+	"username": "admin_ioasys",
+	"password": "ioasys@2021"
+}'
+```
+
+- Usuários
+```
+curl --request POST \
+  --url http://localhost:3000/user/authenticate \
+  --header 'content-type: application/json' \
+  --data '{
+	"email": "jose.silva@email.com",
+	"password": "pass@123!"
+}'
+```
+
+## Admin
+- Listagem
+```
+curl --request GET \
+  --url http://localhost:3000/admins \
+  --header 'authorization: Bearer TOKEN'
+```
+- Criação
+```
+curl --request POST \
+  --url http://localhost:3000/admin \
+  --header 'authorization: Bearer TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+	"username": "usuario",
+	"password": "pass@123!",
+	"email": "usuario@email.com"
+}'
+```
+- Exibição
+```
+curl --request GET \
+  --url http://localhost:3000/admin/ID_ADMIN \
+  --header 'authorization: Bearer TOKEN'
+```
+- Atualização
+```
+curl --request PATCH \
+  --url http://localhost:3000/admin/ID_ADMIN \
+  --header 'authorization: Bearer TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+	"username": "usuario",
+	"password": "pass@123!",
+	"email": "usuario@email.com"
+}'
+```
+- Deleção
+```
+curl --request DELETE \
+  --header 'authorization: Bearer TOKEN' \
+  --url http://localhost:3000/admin/ID_ADMIN
+```
+
+## Usuários
+- Listagem
+```
+curl --request GET \
+  --url http://localhost:3000/users \
+  --header 'authorization: Bearer TOKEN'
+```
+- Criação
+```
+curl --request POST \
+  --url http://localhost:3000/user \
+  --header 'authorization: Bearer TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+	"name": "João da Silva",
+	"password": "pass@123!",
+	"email": "joao.silva@email.com",
+	"birthday": "1993-11-05 00:00:00"
+}'
+```
+- Exibição
+```
+curl --request GET \
+  --url http://localhost:3000/user/ID_USER \
+  --header 'authorization: Bearer TOKEN'  
+```
+- Atualização
+```
+curl --request PATCH \
+  --url http://localhost:3000/user/ID_USER \
+  --header 'authorization: Bearer TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+	"name": "João da Silva",
+	"password": "pass@123!",
+	"email": "joao.silva@email.com",
+	"birthday": "1993-11-05 00:00:00"
+}'
+```
+- Deleção
+```
+curl --request DELETE \
+  --header 'authorization: Bearer TOKEN' \
+  --url http://localhost:3000/user/ID_USER
+```
+
+## Filmes
+- Listagem
+```
+curl --request GET \
+  --url http://localhost:3000/movies \
+  --header 'authorization: Bearer TOKEN'
+```
+- Criação
+```
+curl --request POST \
+  --url http://localhost:3000/movie \
+  --header 'authorization: Bearer TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+    "title": "Back to the Future",
+    "synopsis": "Marty McFly, a 17 year old high school student gets lost in 1955 by an accident, 30 years back in time. With the help of his friend Dr. Emmet Brown, he is desperately trying to find his way back to the future in the year 1985. It becomes a battle against the clock.",
+    "director": "Robert Zemeckis",
+    "genre": "Sci-Fi",
+    "actors": "Michael J. Fox, Christopher Lloyd, Lea Thompson, Crispin Glover"
+}'
+```
+- Exibição
+```
+curl --request GET \
+  --url http://localhost:3000/movie/ID_MOVIE \
+  --header 'authorization: Bearer TOKEN'  
+```
+- Atualização
+```
+curl --request PATCH \
+  --url http://localhost:3000/movie/ID_MOVIE \
+  --header 'authorization: Bearer TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+    "title": "Back to the Future",
+    "synopsis": "Marty McFly, a 17 year old high school student gets lost in 1955 by an accident, 30 years back in time. With the help of his friend Dr. Emmet Brown, he is desperately trying to find his way back to the future in the year 1985. It becomes a battle against the clock.",
+    "director": "Robert Zemeckis",
+    "genre": "Sci-Fi",
+    "actors": "Michael J. Fox, Christopher Lloyd, Lea Thompson, Crispin Glover"
+}'
+```
+- Deleção
+```
+curl --request DELETE \
+  --header 'authorization: Bearer TOKEN' \
+  --url http://localhost:3000/movie/ID_MOVIE
+```
+- Voto
+```
+curl --request POST \
+  --url http://localhost:3000/movie/ID_MOVIE/vote \
+  --header 'authorization: Bearer TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+	"note": 3
+}'
+```
