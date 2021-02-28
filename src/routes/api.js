@@ -21,6 +21,7 @@ router.post('/admin', isAdminMiddleware, adminController.store)
 router.get('/admin/:id', isAdminMiddleware, adminController.show)
 router.patch('/admin/:id', isAdminMiddleware, adminController.update)
 router.delete('/admin/:id', isAdminMiddleware, adminController.destroy)
+router.post('/admin/authenticate', authController.authAdmin)
 
 /*
 #### User Routes ####

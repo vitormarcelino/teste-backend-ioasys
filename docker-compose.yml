@@ -1,0 +1,21 @@
+version: "3.1"
+services:
+  app:
+    build: .
+    restart: always
+    ports:
+      - 3000:3000
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: "teste-backed-ioasys"
+      MYSQL_USER: "teste-backed-ioasys"
+      MYSQL_PASSWORD: "KWTW&hy4"
+      MYSQL_ROOT_PASSWORD: "KWTW&hy4"
+    expose:
+      - "3306"
+    volumes:
+      - data_teste-backend-ioasys:/var/lib/mysql
+volumes:
+  data_teste-backend-ioasys:
