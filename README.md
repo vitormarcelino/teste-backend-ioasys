@@ -81,7 +81,7 @@ Você deverá criar uma API que o site [IMDb](https://www.imdb.com/) irá consul
 - Admin 
 ```
 curl --request POST \
-  --url http://localhost:3000/admin/authenticate \
+  --url https://ioasys.vitormarcelino.com.br/admin/authenticate \
   --header 'content-type: application/json' \
   --data '{
 	"username": "admin_ioasys",
@@ -92,7 +92,7 @@ curl --request POST \
 - Usuários
 ```
 curl --request POST \
-  --url http://localhost:3000/user/authenticate \
+  --url https://ioasys.vitormarcelino.com.br/user/authenticate \
   --header 'content-type: application/json' \
   --data '{
 	"email": "jose.silva@email.com",
@@ -104,13 +104,13 @@ curl --request POST \
 - Listagem
 ```
 curl --request GET \
-  --url http://localhost:3000/admins \
+  --url https://ioasys.vitormarcelino.com.br/admins \
   --header 'authorization: Bearer TOKEN'
 ```
 - Criação
 ```
 curl --request POST \
-  --url http://localhost:3000/admin \
+  --url https://ioasys.vitormarcelino.com.br/admin \
   --header 'authorization: Bearer TOKEN' \
   --header 'content-type: application/json' \
   --data '{
@@ -122,13 +122,13 @@ curl --request POST \
 - Exibição
 ```
 curl --request GET \
-  --url http://localhost:3000/admin/ID_ADMIN \
+  --url https://ioasys.vitormarcelino.com.br/admin/ID_ADMIN \
   --header 'authorization: Bearer TOKEN'
 ```
 - Atualização
 ```
 curl --request PATCH \
-  --url http://localhost:3000/admin/ID_ADMIN \
+  --url https://ioasys.vitormarcelino.com.br/admin/ID_ADMIN \
   --header 'authorization: Bearer TOKEN' \
   --header 'content-type: application/json' \
   --data '{
@@ -141,20 +141,20 @@ curl --request PATCH \
 ```
 curl --request DELETE \
   --header 'authorization: Bearer TOKEN' \
-  --url http://localhost:3000/admin/ID_ADMIN
+  --url https://ioasys.vitormarcelino.com.br/admin/ID_ADMIN
 ```
 
 ## Usuários
 - Listagem
 ```
 curl --request GET \
-  --url http://localhost:3000/users \
+  --url https://ioasys.vitormarcelino.com.br/users \
   --header 'authorization: Bearer TOKEN'
 ```
 - Criação
 ```
 curl --request POST \
-  --url http://localhost:3000/user \
+  --url https://ioasys.vitormarcelino.com.br/user \
   --header 'authorization: Bearer TOKEN' \
   --header 'content-type: application/json' \
   --data '{
@@ -167,13 +167,13 @@ curl --request POST \
 - Exibição
 ```
 curl --request GET \
-  --url http://localhost:3000/user/ID_USER \
+  --url https://ioasys.vitormarcelino.com.br/user/ID_USER \
   --header 'authorization: Bearer TOKEN'  
 ```
 - Atualização
 ```
 curl --request PATCH \
-  --url http://localhost:3000/user/ID_USER \
+  --url https://ioasys.vitormarcelino.com.br/user/ID_USER \
   --header 'authorization: Bearer TOKEN' \
   --header 'content-type: application/json' \
   --data '{
@@ -187,20 +187,21 @@ curl --request PATCH \
 ```
 curl --request DELETE \
   --header 'authorization: Bearer TOKEN' \
-  --url http://localhost:3000/user/ID_USER
+  --url https://ioasys.vitormarcelino.com.br/user/ID_USER
 ```
 
 ## Filmes
 - Listagem
+Os parâmetros genre, director e actors são opcionais, para aplicar filtros no resultado.
 ```
 curl --request GET \
-  --url http://localhost:3000/movies \
+  --url https://ioasys.vitormarcelino.com.br/movies?genre=Sci-Fi&director=Robert Zemeckis&actors=Christopher Lloyd \
   --header 'authorization: Bearer TOKEN'
 ```
 - Criação
 ```
 curl --request POST \
-  --url http://localhost:3000/movie \
+  --url https://ioasys.vitormarcelino.com.br/movie \
   --header 'authorization: Bearer TOKEN' \
   --header 'content-type: application/json' \
   --data '{
@@ -214,13 +215,13 @@ curl --request POST \
 - Exibição
 ```
 curl --request GET \
-  --url http://localhost:3000/movie/ID_MOVIE \
+  --url https://ioasys.vitormarcelino.com.br/movie/ID_MOVIE \
   --header 'authorization: Bearer TOKEN'  
 ```
 - Atualização
 ```
 curl --request PATCH \
-  --url http://localhost:3000/movie/ID_MOVIE \
+  --url https://ioasys.vitormarcelino.com.br/movie/ID_MOVIE \
   --header 'authorization: Bearer TOKEN' \
   --header 'content-type: application/json' \
   --data '{
@@ -235,12 +236,12 @@ curl --request PATCH \
 ```
 curl --request DELETE \
   --header 'authorization: Bearer TOKEN' \
-  --url http://localhost:3000/movie/ID_MOVIE
+  --url https://ioasys.vitormarcelino.com.br/movie/ID_MOVIE
 ```
 - Voto
 ```
 curl --request POST \
-  --url http://localhost:3000/movie/ID_MOVIE/vote \
+  --url https://ioasys.vitormarcelino.com.br/movie/ID_MOVIE/vote \
   --header 'authorization: Bearer TOKEN' \
   --header 'content-type: application/json' \
   --data '{
