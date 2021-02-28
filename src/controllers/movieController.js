@@ -4,7 +4,17 @@ const { Op } = require("sequelize");
 class MovieController {
 
     async index(req, res) {
-        const movies = await Movie.findAll({ attributes: ['title', 'director', 'genre', 'actors']})
+        let config = { attributes: ['title', 'director', 'genre', 'actors']}
+        if(Object.keys(req.query).length > 0) {
+            config.where = {}
+            Object.keys(req.query).forEach(filter => {
+                if(config.attributes.includes(filter)) {
+                    let operator = (filter == 'actors') ? Op.substring : Op.eq
+                    config.where[filter] = { [operator]: req.query[filter] }
+                }
+            })
+        }
+        const movies = await Movie.findAll(config)
         return res.send(movies)
     }
 
