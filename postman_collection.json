@@ -1,0 +1,1844 @@
+{
+	"info": {
+		"_postman_id": "08bb203a-fa21-43c4-a444-9a8d9126187d",
+		"name": "ioasys-teste-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "List Movies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/movies?genre=Sci-Fi&director=Robert Zemeckis&actors=Christopher Lloyd",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "genre",
+									"value": "Sci-Fi"
+								},
+								{
+									"key": "director",
+									"value": "Robert Zemeckis"
+								},
+								{
+									"key": "actors",
+									"value": "Christopher Lloyd"
+								}
+							]
+						},
+						"description": "List Movies"
+					},
+					"response": [
+						{
+							"name": "Response_401",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/movies?genre=Sci-Fi&director=Robert Zemeckis&actors=Christopher Lloyd",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "genre",
+											"value": "Sci-Fi"
+										},
+										{
+											"key": "director",
+											"value": "Robert Zemeckis"
+										},
+										{
+											"key": "actors",
+											"value": "Christopher Lloyd"
+										}
+									]
+								},
+								"description": "List Movies"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-L35aoxtdmS/oLVcAsOu2edCbOXo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Feb 2021 00:32:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n  \"error\": \"No authorization header found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Back to the Future\",\r\n  \"synopsis\": \"Marty McFly, a 17 year old high school student gets lost in 1955 by an accident, 30 years back in time. With the help of his friend Dr. Emmet Brown, he is desperately trying to find his way back to the future in the year 1985. It becomes a battle against the clock.\",\r\n  \"director\": \"Robert Zemeckis\",\r\n  \"genre\": \"Sci-Fi\",\r\n  \"actors\": \"Michael J. Fox, Christopher Lloyd, Lea Thompson, Crispin Glover\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/movie",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movie"
+							]
+						},
+						"description": "Create Movie"
+					},
+					"response": [
+						{
+							"name": "Response_200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Back to the Future\",\r\n  \"synopsis\": \"Marty McFly, a 17 year old high school student gets lost in 1955 by an accident, 30 years back in time. With the help of his friend Dr. Emmet Brown, he is desperately trying to find his way back to the future in the year 1985. It becomes a battle against the clock.\",\r\n  \"director\": \"Robert Zemeckis\",\r\n  \"genre\": \"Sci-Fi\",\r\n  \"actors\": \"Michael J. Fox, Christopher Lloyd, Lea Thompson, Crispin Glover\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/movie",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"movie"
+									]
+								},
+								"description": "Create Movie"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Length",
+									"value": "219"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"db-m1wWRmrMSmLsr5mI9+ofuFBWQs4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Feb 2021 04:02:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\"movie\":{\"id\":1,\"title\":\"Back to the Future\",\"synopsis\":\"Best movie in the world\",\"director\":\"VM\",\"genre\":\"Fiction\",\"actors\":\"Vitor, Lara\",\"updatedAt\":\"2021-02-27T04:02:04.278Z\",\"createdAt\":\"2021-02-27T04:02:04.278Z\"}}"
+						}
+					]
+				},
+				{
+					"name": "Show Movie",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/movie/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movie",
+								"1"
+							]
+						},
+						"description": "Get Movie"
+					},
+					"response": [
+						{
+							"name": "Response_200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/movie/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"movie",
+										"1"
+									]
+								},
+								"description": "Get Movie"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Length",
+									"value": "155"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9b-TC7ro4r/Aw/lRCkUmNhVA3dEvmw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Feb 2021 23:56:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\"id\":1,\"title\":\"Back to the Future II\",\"synopsis\":\"Best movie in the world\",\"director\":\"VM\",\"genre\":\"Fiction\",\"actors\":\"Vitor, Lara\",\"averageVotes\":\"2.7\"}"
+						}
+					]
+				},
+				{
+					"name": "Update Movie",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Back to the Future\",\r\n  \"synopsis\": \"Marty McFly, a 17 year old high school student gets lost in 1955 by an accident, 30 years back in time. With the help of his friend Dr. Emmet Brown, he is desperately trying to find his way back to the future in the year 1985. It becomes a battle against the clock.\",\r\n  \"director\": \"Robert Zemeckis\",\r\n  \"genre\": \"Sci-Fi\",\r\n  \"actors\": \"Michael J. Fox, Christopher Lloyd, Lea Thompson, Crispin Glover\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/movie/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movie",
+								"1"
+							]
+						},
+						"description": "Update Movie"
+					},
+					"response": [
+						{
+							"name": "Response_200",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Back to the Future\",\r\n  \"synopsis\": \"Marty McFly, a 17 year old high school student gets lost in 1955 by an accident, 30 years back in time. With the help of his friend Dr. Emmet Brown, he is desperately trying to find his way back to the future in the year 1985. It becomes a battle against the clock.\",\r\n  \"director\": \"Robert Zemeckis\",\r\n  \"genre\": \"Sci-Fi\",\r\n  \"actors\": \"Michael J. Fox, Christopher Lloyd, Lea Thompson, Crispin Glover\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/movie/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"movie",
+										"1"
+									]
+								},
+								"description": "Update Movie"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Length",
+									"value": "134"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"86-hz+H/rOhY1Qi1XuqrVGc5bp+l2A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Feb 2021 18:38:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\"id\":1,\"title\":\"Back to the Future II\",\"synopsis\":\"Best movie in the world\",\"director\":\"VM\",\"genre\":\"Fiction\",\"actors\":\"Vitor, Lara\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete Movie",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/movie/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movie",
+								"1"
+							]
+						},
+						"description": "Delete Movie"
+					},
+					"response": [
+						{
+							"name": "Response_204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/movie/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"movie",
+										"1"
+									]
+								},
+								"description": "Delete Movie"
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Feb 2021 04:08:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Vote Movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"note\": 2\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/movie/1/vote",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movie",
+								"1",
+								"vote"
+							]
+						},
+						"description": "Vote Movie"
+					},
+					"response": [
+						{
+							"name": "Response_204",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"note\": 2\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/movie/1/vote",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"movie",
+										"1",
+										"vote"
+									]
+								},
+								"description": "Vote Movie"
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Feb 2021 20:59:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "List Users"
+					},
+					"response": [
+						{
+							"name": "Response_200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									]
+								},
+								"description": "List Users"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Feb 2021 21:05:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"João da Silva\",\r\n  \"password\": \"pass@123!\",\r\n  \"email\": \"joao.silva@email.com\",\r\n  \"birthday\": \"1993-11-05 00:00:00\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "Create User"
+					},
+					"response": [
+						{
+							"name": "Response_200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"João da Silva\",\r\n  \"password\": \"pass@123!\",\r\n  \"email\": \"joao.silva@email.com\",\r\n  \"birthday\": \"1993-11-05 00:00:00\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user"
+									]
+								},
+								"description": "Create User"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Length",
+									"value": "195"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c3-I2g6lDw4F9JENY2Qoq8MT5ed6T8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Feb 2021 02:56:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\"user\":{\"id\":1,\"name\":\"Vitor Marcelino\",\"email\":\"vitormarcelino93@gmail.com\",\"birthday\":\"1993-11-05T02:00:00.000Z\",\"updatedAt\":\"2021-02-27T02:56:25.421Z\",\"createdAt\":\"2021-02-27T02:56:25.421Z\"}}"
+						}
+					]
+				},
+				{
+					"name": "Show User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/user/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						},
+						"description": "Get User"
+					},
+					"response": [
+						{
+							"name": "Response_200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/user/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"1"
+									]
+								},
+								"description": "Get User"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Length",
+									"value": "108"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6c-1vQ0L0yDbUoQWV9J2iQ4BLftHfs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Feb 2021 03:04:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\"id\":1,\"email\":\"vitormarcelino93@gmail.com\",\"name\":\"Vitor Marcelino\",\"birthday\":\"1993-11-05T02:00:00.000Z\"}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"João da Silva\",\r\n  \"password\": \"pass@123!\",\r\n  \"email\": \"joao.silva@email.com\",\r\n  \"birthday\": \"1993-11-05 00:00:00\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						},
+						"description": "Update User"
+					},
+					"response": [
+						{
+							"name": "Response_200",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"João da Silva\",\r\n  \"password\": \"pass@123!\",\r\n  \"email\": \"joao.silva@email.com\",\r\n  \"birthday\": \"1993-11-05 00:00:00\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/user/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"1"
+									]
+								},
+								"description": "Update User"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"93-ZJ3AbNIESKHFVlL5ixIhyprZghE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Feb 2021 03:02:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\"id\":1,\"email\":\"vitormarcelino93@gmail.com\",\"name\":\"Vitor Marcelino\",\"birthday\":\"1993-11-05T02:00:00.000Z\",\"updatedAt\":\"2021-02-27T03:02:14.999Z\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/user/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						},
+						"description": "Delete User"
+					},
+					"response": [
+						{
+							"name": "Response_204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/user/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"1"
+									]
+								},
+								"description": "Delete User"
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Feb 2021 03:05:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "List Admins",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/admins",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admins"
+							]
+						},
+						"description": "List Admin"
+					},
+					"response": [
+						{
+							"name": "Response_401",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/admins",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admins"
+									]
+								},
+								"description": "List Admin"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.14.1"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Feb 2021 21:25:25 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-v5/U13VYYMcj2aZBEqWlavOmhjs\""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n  \"error\": \"Invalid authorization header (malformated)\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"vitor.marcelino\",\r\n  \"password\": \"senha\",\r\n  \"email\": \"vitormarcelino93@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/admin",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin"
+							]
+						},
+						"description": "Create Admin"
+					},
+					"response": [
+						{
+							"name": "Response_409",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"vitor.marcelino\",\r\n  \"password\": \"senha\",\r\n  \"email\": \"vitormarcelino93@gmail.com\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/admin",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin"
+									]
+								},
+								"description": "Create Admin"
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20-iqOWAheTgnCUvaeJvdAxdCDWNbY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Feb 2021 19:48:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n  \"error\": \"Admin already exists\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Show Admin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/admin/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"1"
+							]
+						},
+						"description": "Get Admin"
+					},
+					"response": [
+						{
+							"name": "Response_404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/admin/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"1"
+									]
+								},
+								"description": "Get Admin"
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Length",
+									"value": "21"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15-5KajTCx0AJD0xogoSeOjjV2M8K0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Feb 2021 19:48:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n  \"error\": \"Not Found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Admin",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"vitor.marcelino\",\r\n  \"password\": \"senha\",\r\n  \"email\": \"vitormarcelino993@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/admin/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"1"
+							]
+						},
+						"description": "Update Admin"
+					},
+					"response": [
+						{
+							"name": "Response_200",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json; charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"vitor.marcelino\",\r\n  \"password\": \"senha\",\r\n  \"email\": \"vitormarcelino993@gmail.com\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"1"
+									]
+								},
+								"description": "Update Admin"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Length",
+									"value": "114"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"72-/13BfeUJQNiMxEfkF/oSroY/5tM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Feb 2021 19:38:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\"id\":1,\"username\":\"vitor.marcelino\",\"email\":\"vitormarcelino993@gmail.com\",\"updatedAt\":\"2021-02-26T19:38:12.044Z\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete Admin",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/admin/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"1"
+							]
+						},
+						"description": "Delete Admin"
+					},
+					"response": [
+						{
+							"name": "Response_204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"1"
+									]
+								},
+								"description": "Delete Admin"
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Feb 2021 19:55:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Authenticate User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"vitormarcelino93@gmail.com\",\r\n  \"password\": \"senha\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/user/authenticate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"authenticate"
+					]
+				},
+				"description": "Auth User"
+			},
+			"response": [
+				{
+					"name": "Response_400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"vitormarcelino93@gmail.com\",\r\n  \"password\": \"senha\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user/authenticate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"authenticate"
+							]
+						},
+						"description": "Auth User"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "Text",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1a-OWkG04wkT4obJj+V+p+3/WSkrwY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 28 Feb 2021 01:00:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n  \"error\": \"User not Found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Authenticate Admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin_ioasys\",\r\n  \"password\": \"ioasys@2021\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/admin/authenticate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin",
+						"authenticate"
+					]
+				},
+				"description": "Auth Admin"
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin_ioasys\",\r\n  \"password\": \"ioasys@2021\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/admin/authenticate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"authenticate"
+							]
+						},
+						"description": "Auth Admin"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.1"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 28 Feb 2021 21:25:31 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "244"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f4-MkuZe2rlne1e84tBzV3LI1yC9IA\""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"admin\":{\"id\":1,\"username\":\"admin_ioasys\",\"email\":\"admin@ioasys.com.br\"},\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibW9kZWwiOiJhZG1pbiIsImlhdCI6MTYxNDU0NzUzMSwiZXhwIjoxNjE1MTUyMzMxfQ.tyCu4lRjcUSI5U5XCHvEBUUvsoqM-l4JZOIcLv3ge7E\"}"
+				}
+			]
+		}
+	]
+}

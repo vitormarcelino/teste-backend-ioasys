@@ -247,3 +247,22 @@ curl --request POST \
 	"note": 3
 }'
 ```
+
+# Collection Postman
+É possível importar o arquivo `postman_collection.json` no Postman, e realizar os testes da API. Ainda no Postman é nencessário criar um Environment com a variável **base_url** e nela definir a url do projeto, exemplo: https://ioasys.vitormarcelino.com.br ou http://127.0.0.1:3000
+
+# Demo
+É possível validar toda a api através do ambiente de homologação, através da url: https://ioasys.vitormarcelino.com.br
+
+# Rodar o projeto
+Para rodar o projeto, é necessário clonar este repositório, e seguir os passos a seguir, utilizando Docker ou o NodeJS (>=14) da Máquina.
+
+## Usando Docker
+
+Rodar `docker-compose up -d`, e a aplicação estará disponível na porta 3000 da máquina
+
+## Usando NodeJS da Máquina
+
+- Copiar o arquivo .env.example para .env, e configurar as variáveis de ambiente, como as configurações de configuração do banco de dados.
+- Rodar `npm install`
+- Rodar `npm run start`

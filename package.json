@@ -8,7 +8,7 @@
     "url": "https://vitormarcelino.com.br"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "main": "src/app.js",
   "license": "MIT",
